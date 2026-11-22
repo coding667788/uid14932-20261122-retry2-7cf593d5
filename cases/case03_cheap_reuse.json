@@ -1,0 +1,300 @@
+{
+  "schema_version": "multicast-guard/v1",
+  "case_id": "case03_cheap_reuse",
+  "version": "v2",
+  "nodes": [
+    {
+      "id": "P0",
+      "role": "publisher"
+    },
+    {
+      "id": "A",
+      "role": "relay"
+    },
+    {
+      "id": "B",
+      "role": "relay"
+    },
+    {
+      "id": "R1",
+      "role": "receiver"
+    },
+    {
+      "id": "R2",
+      "role": "receiver"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e01",
+      "src": "P0",
+      "dst": "A",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d1",
+      "cost": 1
+    },
+    {
+      "id": "e02",
+      "src": "A",
+      "dst": "R1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d1",
+      "cost": 1
+    },
+    {
+      "id": "e03",
+      "src": "A",
+      "dst": "R2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d1",
+      "cost": 1
+    },
+    {
+      "id": "e04",
+      "src": "P0",
+      "dst": "B",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 40
+    },
+    {
+      "id": "e05",
+      "src": "B",
+      "dst": "R1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 40
+    },
+    {
+      "id": "e06",
+      "src": "B",
+      "dst": "R2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 40
+    }
+  ],
+  "topics": [
+    {
+      "id": "T1",
+      "classification": 3,
+      "plain_allowed": [
+        "A",
+        "B",
+        "P0",
+        "R1",
+        "R2"
+      ]
+    }
+  ],
+  "message": {
+    "id": "m1",
+    "topic": "T1",
+    "publisher": "P0",
+    "digest": "sha256:synthetic-case03_cheap_reuse",
+    "generation": 2,
+    "publish_window": {
+      "earliest": 0,
+      "latest": 4
+    },
+    "deadline": 20
+  },
+  "permits": [
+    {
+      "id": "p1a",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "p1b",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "p2a",
+      "node": "A",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "p2b",
+      "node": "A",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "p2c",
+      "node": "A",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "p2d",
+      "node": "A",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    }
+  ],
+  "receivers": [
+    "R1",
+    "R2"
+  ],
+  "fault_domains": [
+    {
+      "id": "d1",
+      "edges": [
+        "e01",
+        "e02",
+        "e03"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d2",
+      "edges": [
+        "e04",
+        "e05",
+        "e06"
+      ],
+      "nodes": []
+    }
+  ],
+  "baseline": {
+    "tree_a": {
+      "tree_id": "baseA",
+      "root": "P0",
+      "edges": [
+        {
+          "edge_id": "e01",
+          "label": "C"
+        },
+        {
+          "edge_id": "e02",
+          "label": "P"
+        },
+        {
+          "edge_id": "e03",
+          "label": "P"
+        }
+      ],
+      "transforms": [
+        {
+          "node": "P0",
+          "from_label": "P",
+          "to_label": "C",
+          "permit_id": "p1a"
+        },
+        {
+          "node": "A",
+          "from_label": "C",
+          "to_label": "P",
+          "permit_id": "p2a"
+        },
+        {
+          "node": "A",
+          "from_label": "C",
+          "to_label": "P",
+          "permit_id": "p2b"
+        }
+      ]
+    },
+    "tree_b": {
+      "tree_id": "baseB",
+      "root": "P0",
+      "edges": [
+        {
+          "edge_id": "e01",
+          "label": "C"
+        },
+        {
+          "edge_id": "e02",
+          "label": "P"
+        },
+        {
+          "edge_id": "e03",
+          "label": "P"
+        }
+      ],
+      "transforms": [
+        {
+          "node": "P0",
+          "from_label": "P",
+          "to_label": "C",
+          "permit_id": "p1b"
+        },
+        {
+          "node": "A",
+          "from_label": "C",
+          "to_label": "P",
+          "permit_id": "p2c"
+        },
+        {
+          "node": "A",
+          "from_label": "C",
+          "to_label": "P",
+          "permit_id": "p2d"
+        }
+      ]
+    }
+  },
+  "check_request": {
+    "publish_time": 0,
+    "failed_domain": "d1"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": "multicast-guard/v1",
+  "case_id": "case02_split_survival",
+  "version": "v2",
+  "nodes": [
+    {
+      "id": "P0",
+      "role": "publisher"
+    },
+    {
+      "id": "A",
+      "role": "relay"
+    },
+    {
+      "id": "B",
+      "role": "relay"
+    },
+    {
+      "id": "R1",
+      "role": "receiver"
+    },
+    {
+      "id": "R2",
+      "role": "receiver"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e01",
+      "src": "P0",
+      "dst": "A",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "e02",
+      "src": "A",
+      "dst": "R1",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "e03",
+      "src": "A",
+      "dst": "R2",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "e04",
+      "src": "P0",
+      "dst": "B",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d4",
+      "cost": 10
+    },
+    {
+      "id": "e05",
+      "src": "B",
+      "dst": "R1",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "e06",
+      "src": "B",
+      "dst": "R2",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d1",
+      "cost": 10
+    }
+  ],
+  "topics": [
+    {
+      "id": "T1",
+      "classification": 3,
+      "plain_allowed": [
+        "A",
+        "B",
+        "P0",
+        "R1",
+        "R2"
+      ]
+    }
+  ],
+  "message": {
+    "id": "m1",
+    "topic": "T1",
+    "publisher": "P0",
+    "digest": "sha256:synthetic-case02_split_survival",
+    "generation": 2,
+    "publish_window": {
+      "earliest": 0,
+      "latest": 4
+    },
+    "deadline": 20
+  },
+  "permits": [],
+  "receivers": [
+    "R1",
+    "R2"
+  ],
+  "fault_domains": [
+    {
+      "id": "d1",
+      "edges": [
+        "e02",
+        "e06"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d2",
+      "edges": [
+        "e03",
+        "e05"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d3",
+      "edges": [
+        "e01"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d4",
+      "edges": [
+        "e04"
+      ],
+      "nodes": []
+    }
+  ],
+  "check_request": {
+    "publish_time": 1,
+    "failed_domain": "d2"
+  }
+}

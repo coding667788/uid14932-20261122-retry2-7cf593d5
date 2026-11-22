@@ -1,0 +1,922 @@
+{
+  "schema_version": "multicast-guard/v1",
+  "case_id": "case07_full_scale",
+  "version": "v2",
+  "nodes": [
+    {
+      "id": "P0",
+      "role": "publisher"
+    },
+    {
+      "id": "A1",
+      "role": "relay"
+    },
+    {
+      "id": "A2",
+      "role": "relay"
+    },
+    {
+      "id": "A3",
+      "role": "relay"
+    },
+    {
+      "id": "A4",
+      "role": "relay"
+    },
+    {
+      "id": "A5",
+      "role": "relay"
+    },
+    {
+      "id": "B1",
+      "role": "relay"
+    },
+    {
+      "id": "B2",
+      "role": "relay"
+    },
+    {
+      "id": "B3",
+      "role": "relay"
+    },
+    {
+      "id": "B4",
+      "role": "relay"
+    },
+    {
+      "id": "B5",
+      "role": "relay"
+    },
+    {
+      "id": "R1",
+      "role": "receiver"
+    },
+    {
+      "id": "R2",
+      "role": "receiver"
+    },
+    {
+      "id": "R3",
+      "role": "receiver"
+    },
+    {
+      "id": "R4",
+      "role": "receiver"
+    },
+    {
+      "id": "R5",
+      "role": "receiver"
+    },
+    {
+      "id": "R6",
+      "role": "receiver"
+    },
+    {
+      "id": "R7",
+      "role": "receiver"
+    }
+  ],
+  "edges": [
+    {
+      "id": "a01",
+      "src": "P0",
+      "dst": "A1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "a02",
+      "src": "P0",
+      "dst": "A2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "a03",
+      "src": "A1",
+      "dst": "A3",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "a04",
+      "src": "A1",
+      "dst": "A4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "a05",
+      "src": "A2",
+      "dst": "A4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "a06",
+      "src": "A2",
+      "dst": "A5",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "a07",
+      "src": "A3",
+      "dst": "R1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "a08",
+      "src": "A3",
+      "dst": "R2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "a09",
+      "src": "A4",
+      "dst": "R2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "a10",
+      "src": "A4",
+      "dst": "R3",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "a11",
+      "src": "A4",
+      "dst": "R4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "a12",
+      "src": "A5",
+      "dst": "R4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "a13",
+      "src": "A5",
+      "dst": "R5",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "a14",
+      "src": "A3",
+      "dst": "R6",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "a15",
+      "src": "A5",
+      "dst": "R7",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "a16",
+      "src": "A1",
+      "dst": "R1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "b01",
+      "src": "P0",
+      "dst": "B1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d4",
+      "cost": 10
+    },
+    {
+      "id": "b02",
+      "src": "P0",
+      "dst": "B2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d5",
+      "cost": 10
+    },
+    {
+      "id": "b03",
+      "src": "B1",
+      "dst": "B3",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d4",
+      "cost": 10
+    },
+    {
+      "id": "b04",
+      "src": "B1",
+      "dst": "B4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d5",
+      "cost": 10
+    },
+    {
+      "id": "b05",
+      "src": "B2",
+      "dst": "B4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d6",
+      "cost": 10
+    },
+    {
+      "id": "b06",
+      "src": "B2",
+      "dst": "B5",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d6",
+      "cost": 10
+    },
+    {
+      "id": "b07",
+      "src": "B3",
+      "dst": "R1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d4",
+      "cost": 10
+    },
+    {
+      "id": "b08",
+      "src": "B3",
+      "dst": "R2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d4",
+      "cost": 10
+    },
+    {
+      "id": "b09",
+      "src": "B4",
+      "dst": "R2",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d5",
+      "cost": 10
+    },
+    {
+      "id": "b10",
+      "src": "B4",
+      "dst": "R3",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d5",
+      "cost": 10
+    },
+    {
+      "id": "b11",
+      "src": "B4",
+      "dst": "R4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d5",
+      "cost": 10
+    },
+    {
+      "id": "b12",
+      "src": "B5",
+      "dst": "R4",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d6",
+      "cost": 10
+    },
+    {
+      "id": "b13",
+      "src": "B5",
+      "dst": "R5",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d6",
+      "cost": 10
+    },
+    {
+      "id": "b14",
+      "src": "B3",
+      "dst": "R6",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d4",
+      "cost": 10
+    },
+    {
+      "id": "b15",
+      "src": "B5",
+      "dst": "R7",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d6",
+      "cost": 10
+    },
+    {
+      "id": "b16",
+      "src": "B1",
+      "dst": "R1",
+      "allowed_labels": [
+        "P",
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 3,
+      "fault_domain": "d6",
+      "cost": 10
+    }
+  ],
+  "topics": [
+    {
+      "id": "T1",
+      "classification": 3,
+      "plain_allowed": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "P0",
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ]
+    }
+  ],
+  "message": {
+    "id": "m1",
+    "topic": "T1",
+    "publisher": "P0",
+    "digest": "sha256:synthetic-case07_full_scale",
+    "generation": 2,
+    "publish_window": {
+      "earliest": 0,
+      "latest": 4
+    },
+    "deadline": 20
+  },
+  "permits": [
+    {
+      "id": "pa01",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pa02",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pa03",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pa04",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pa05",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pa06",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc07",
+      "node": "A1",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc08",
+      "node": "A1",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc09",
+      "node": "A1",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc10",
+      "node": "A2",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc11",
+      "node": "A2",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc12",
+      "node": "A2",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc13",
+      "node": "B1",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc14",
+      "node": "B1",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc15",
+      "node": "B1",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc16",
+      "node": "B2",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc17",
+      "node": "B2",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pc18",
+      "node": "B2",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf19",
+      "node": "A3",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf20",
+      "node": "A3",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf21",
+      "node": "A4",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf22",
+      "node": "A4",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf23",
+      "node": "A5",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf24",
+      "node": "A5",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf25",
+      "node": "B3",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf26",
+      "node": "B3",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf27",
+      "node": "B4",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf28",
+      "node": "B4",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf29",
+      "node": "B5",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "pf30",
+      "node": "B5",
+      "from_label": "C",
+      "to_label": "P",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    }
+  ],
+  "receivers": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7"
+  ],
+  "fault_domains": [
+    {
+      "id": "d1",
+      "edges": [
+        "a01",
+        "a03",
+        "a07",
+        "a08",
+        "a14",
+        "a16"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d2",
+      "edges": [
+        "a02",
+        "a04",
+        "a09",
+        "a10",
+        "a11"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d3",
+      "edges": [
+        "a05",
+        "a06",
+        "a12",
+        "a13",
+        "a15"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d4",
+      "edges": [
+        "b01",
+        "b03",
+        "b07",
+        "b08",
+        "b14"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d5",
+      "edges": [
+        "b02",
+        "b04",
+        "b09",
+        "b10",
+        "b11"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d6",
+      "edges": [
+        "b05",
+        "b06",
+        "b12",
+        "b13",
+        "b15",
+        "b16"
+      ],
+      "nodes": []
+    }
+  ],
+  "check_request": {
+    "publish_time": 2,
+    "failed_domain": "d2"
+  }
+}

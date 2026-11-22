@@ -1,0 +1,268 @@
+{
+  "schema_version": "multicast-guard/v1",
+  "case_id": "case04_forbidden_plain",
+  "version": "v2",
+  "nodes": [
+    {
+      "id": "P0",
+      "role": "publisher"
+    },
+    {
+      "id": "A",
+      "role": "relay"
+    },
+    {
+      "id": "B",
+      "role": "relay"
+    },
+    {
+      "id": "C",
+      "role": "relay"
+    },
+    {
+      "id": "R1",
+      "role": "receiver"
+    },
+    {
+      "id": "R2",
+      "role": "receiver"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e01",
+      "src": "P0",
+      "dst": "A",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "e02",
+      "src": "A",
+      "dst": "R1",
+      "allowed_labels": [
+        "P"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d1",
+      "cost": 10
+    },
+    {
+      "id": "e03",
+      "src": "P0",
+      "dst": "B",
+      "allowed_labels": [
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "e04",
+      "src": "B",
+      "dst": "R2",
+      "allowed_labels": [
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "e05",
+      "src": "B",
+      "dst": "R1",
+      "allowed_labels": [
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d2",
+      "cost": 10
+    },
+    {
+      "id": "e06",
+      "src": "P0",
+      "dst": "C",
+      "allowed_labels": [
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "e07",
+      "src": "C",
+      "dst": "R1",
+      "allowed_labels": [
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d3",
+      "cost": 10
+    },
+    {
+      "id": "e08",
+      "src": "C",
+      "dst": "R2",
+      "allowed_labels": [
+        "C"
+      ],
+      "max_classification": 5,
+      "delay_min": 1,
+      "delay_max": 2,
+      "fault_domain": "d3",
+      "cost": 10
+    }
+  ],
+  "topics": [
+    {
+      "id": "T1",
+      "classification": 3,
+      "plain_allowed": [
+        "P0",
+        "R1",
+        "R2"
+      ]
+    }
+  ],
+  "message": {
+    "id": "m1",
+    "topic": "T1",
+    "publisher": "P0",
+    "digest": "sha256:synthetic-case04_forbidden_plain",
+    "generation": 2,
+    "publish_window": {
+      "earliest": 0,
+      "latest": 4
+    },
+    "deadline": 20
+  },
+  "permits": [
+    {
+      "id": "p1a",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "p1b",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    },
+    {
+      "id": "p1c",
+      "node": "P0",
+      "from_label": "P",
+      "to_label": "C",
+      "topic": "T1",
+      "generation": 2,
+      "version": "v2"
+    }
+  ],
+  "receivers": [
+    "R1",
+    "R2"
+  ],
+  "fault_domains": [
+    {
+      "id": "d1",
+      "edges": [
+        "e01",
+        "e02"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d2",
+      "edges": [
+        "e03",
+        "e04",
+        "e05"
+      ],
+      "nodes": []
+    },
+    {
+      "id": "d3",
+      "edges": [
+        "e06",
+        "e07",
+        "e08"
+      ],
+      "nodes": []
+    }
+  ],
+  "baseline": {
+    "tree_a": {
+      "tree_id": "baseA",
+      "root": "P0",
+      "edges": [
+        {
+          "edge_id": "e01",
+          "label": "P"
+        },
+        {
+          "edge_id": "e02",
+          "label": "P"
+        }
+      ],
+      "transforms": []
+    },
+    "tree_b": {
+      "tree_id": "baseB",
+      "root": "P0",
+      "edges": [
+        {
+          "edge_id": "e03",
+          "label": "C"
+        },
+        {
+          "edge_id": "e04",
+          "label": "C"
+        },
+        {
+          "edge_id": "e05",
+          "label": "C"
+        }
+      ],
+      "transforms": [
+        {
+          "node": "P0",
+          "from_label": "P",
+          "to_label": "C",
+          "permit_id": "p1a"
+        }
+      ]
+    }
+  },
+  "check_request": {
+    "publish_time": 2,
+    "failed_domain": null
+  }
+}
